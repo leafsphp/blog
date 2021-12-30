@@ -109,7 +109,7 @@ You can clearly see there are no namespaces or class initializers.
 We are glad to announce that the first preview of Leaf 3 has been released for public use. It is stable and you can expect it to work just fine. Note that the latest preview version is a snapshot of the `v3.x` branch. You can install this using composer.
 
 ```sh
-composer require leafs/leaf v3.0-alpha
+composer require leafs/leaf v3.0-rc
 ```
 
 If you however want to keep up with the development of Leaf 3 and have the latest updates the moment they're pushed, you can install from the `v3.x-dev` branch.
@@ -139,11 +139,13 @@ Leaf 2 documentation has also been hosted at [https://archive.leafphp.dev](https
 
 - **As a new user, should you start with Leaf 2 now or wait for 3.0?**
 
-If you are just starting to learn the framework, you should start with Leaf 2 now, since Leaf 3 does not involve dramatic re-designs and the vast majority of your Leaf 2 knowledge will still apply for Leaf 3. There's no point in waiting if you are just learning.
+At the moment, our RC has been released, which means that Leaf 3 is close to completion and stable in terms of features and changes. The final release will be almost identical to the final RC.
+
+To answer the question above, we will recommend you start with the Leaf 3 RC.
 
 - **Should you use Leaf 3 if you are picking a stack for an upcoming production project?**
 
-If the project needs to start right now: we still recommend starting with Leaf 2 at least until the Leaf 3 RC is ready. However, make sure to keep an eye on upcoming changes in 3.0 and stay away from removed features. You may also want to stay away from heavy 3rd party dependencies that are coupled to Leaf 2.
+Leaf 3 is in the RC phase which means it is close to the final release. You can start building with the RC and simply run the install command to upgrade when the final version is released. There is no point in starting with v2 and then trying to upgrade when v3 is ready.
 
 ## What's Left on Leaf 3?
 
@@ -168,11 +170,9 @@ There's actually a whole lot left to work on with Leaf 3. Over the past weeks, w
 
 ## Leaf 3 Release plans
 
-The first preview of Leaf 3 has been released. Previews are released when the `v3.x-dev` branch is stable and merged with the `v3.x` branch. As modules are updated, versions of packages and other changes may be needed in the leaf package. That's what previews are for.
+We are done with our preview releases and our official beta. At the moment, we have released our first release candidate (RC). We are finalizing features and version numbers on our modules.
 
-Once all modules are deemed safe for use, our official beta will be released and will run for a few weeks.
-
-When leaf 3 beta is stable and suitable for use in production-ready apps, the official v3 release will be published 🚀
+This will lead to the decision of whether another RC is necessary or not. Leaf 3 is however stable at the moment and can be used in production. As mentioned earlier, the RC and final release will be almost identical. This means you can build your projects with Leaf 3 now and upgrade when the final v3 release is ready.
 
 ### Timelines
 
