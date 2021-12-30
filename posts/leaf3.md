@@ -6,7 +6,7 @@ github: mychidarko
 twitter: '@mychidarko'
 ---
 
-<img src="http://leafphp.dev/images/blog/leaf3-twitter-rebrand.jpg" style="margin-bottom:15px; border-radius:8px;" />
+<img src="https://leafphp.dev/images/blog/leaf3-twitter-rebrand.jpg" style="margin-bottom:15px; border-radius:8px;" />
 
 We've been planning a new release: version 3 of leaf which has been under development for the past couple of months. This post contains everything you need to know about Leaf 3 ⚡️
 
