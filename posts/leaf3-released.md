@@ -102,6 +102,7 @@ Leaf 3 has improved performance, security and developer experience by leaps and 
 - Migration tools for Leaf MVC and Leaf API
 - Leaf 2.7 (Leaf 3 migration build)
 - Taking advantage of PHP 8 tools (through modules of course)
+- Create templates and starters
 - Building on top of existing modules
 - Automating some best practices
 - Aloe Scaffolds for Vue and React
