@@ -132,10 +132,13 @@ body:not(.-light) h3,
 body:not(.-light) h4,
 body:not(.-light) h5,
 body:not(.-light) h6,
-body:not(.-light) dd {
+body:not(.-light) dd,
+body:not(.-light) th,
+body:not(.-light) td {
   color: #fff !important;
 }
 
-body:not(.-light) a:not([href="#"]) {
+body:not(.-light) a:not([href="#"]),
+body:not(.-light) code {
   color: #3eaf7c !important;
 }
