@@ -6,7 +6,7 @@ github: mychidarko
 twitter: '@mychidarko'
 ---
 
-The official build of Leaf 3 was released yesterday: 15th March, and since then, all our packages are updating to use Leaf 3 as the new default.
+The official build of Leaf 3 was released on 15th March, and since then, all our packages are updating to use Leaf 3 as the new default.
 
 Make sure to read the breaking changes section to see if you need to make certain changes before the switch to Leaf 3.
 
