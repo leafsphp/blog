@@ -22,14 +22,14 @@ load(true).forEach((post) => {
     /<div [^<>]+?class="prose[^<>]+?>([\s\S]*)<\/div><\/div><footer/
   )
 
-  console.log(content)
+  console.log(content, rendered)
 
   feed.addItem({
     title: post.title,
     id: `${url}${post.href}`,
     link: `${url}${post.href}`,
     description: post.excerpt,
-    content: content[1],
+    content: content && content[1],
     author: [
       {
         name: post.data.author,
