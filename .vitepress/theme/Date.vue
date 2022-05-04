@@ -7,7 +7,7 @@ const props = defineProps({
 })
 
 function getDateTime() {
-  return new Date(props.date.time).toISOString()
+  return new Date(props?.date?.time || Date.now()).toISOString()
 }
 </script>
 
@@ -15,7 +15,7 @@ function getDateTime() {
   <dl>
     <dt class="sr-only">Published on</dt>
     <dd class="text-base leading-6 font-medium text-gray-500">
-      <time :datetime="getDateTime()">{{ date.string }}</time>
+      <time :datetime="getDateTime()">{{ date?.string }}</time>
     </dd>
   </dl>
 </template>

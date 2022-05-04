@@ -37,7 +37,7 @@ import { useRoute } from 'vitepress'
 import Home from './Home.vue'
 import Article from './Article.vue'
 
-let isDark = (window.localStorage["isDark"] || false);
+let isDark = typeof window !== 'undefined' && (window.localStorage["isDark"] || false);
 
 const route = useRoute()
 const isIndex = computed(() => route.path.replace(/index.html$/, '') === '/');
@@ -60,6 +60,10 @@ const applyMode = () => {
 };
 
 const toggleMode = () => {
+  if (typeof window === "undefined") {
+    return;
+  }
+
   window.localStorage["isDark"] = !isDark;
   isDark = !isDark;
 

@@ -15,7 +15,7 @@ export default defineConfig({
   ],
   vite: {
     build: {
-      minify: 'esbuild'
+      minify: 'terser'
     }
   }
 })

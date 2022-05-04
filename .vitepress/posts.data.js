@@ -32,6 +32,7 @@ function getPost(file, postDir, asFeed = false) {
     date: formatDate(data.date),
     excerpt
   }
+
   if (asFeed) {
     // only attach these when building the RSS feed to avoid bloating the
     // client bundle size

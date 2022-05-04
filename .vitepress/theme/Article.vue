@@ -10,11 +10,16 @@ const { frontmatter: data } = useData()
 const route = useRoute()
 
 function findCurrentIndex() {
-  return posts.findIndex((p) => p.href === route.path)
+  return posts.findIndex((p) => {
+    if (p.href === route.path && typeof p === 'object') {
+      console.log(p, 'p')
+      return p
+    }
+  })
 }
 
 // use the customData date which contains pre-resolved date info
-const date = computed(() => posts[findCurrentIndex()].date)
+const date = computed(() => posts[findCurrentIndex()]?.date)
 const nextPost = computed(() => posts[findCurrentIndex() - 1])
 const prevPost = computed(() => posts[findCurrentIndex() + 1])
 </script>

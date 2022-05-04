@@ -22,8 +22,6 @@ load(true).forEach((post) => {
     /<div [^<>]+?class="prose[^<>]+?>([\s\S]*)<\/div><\/div><footer/
   )
 
-  console.log(content, rendered)
-
   feed.addItem({
     title: post.title,
     id: `${url}${post.href}`,
@@ -38,7 +36,7 @@ load(true).forEach((post) => {
           : undefined
       }
     ],
-    date: post.data.date
+    date: post?.data?.date
   })
 })
 
