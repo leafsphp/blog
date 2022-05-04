@@ -31,6 +31,41 @@ p img {
   display: none;
 }
 
+.prose :where(pre):not(:where([class~='not-prose'] *)) {
+  background: transparent;
+  position: relative;
+  z-index: 1;
+  line-height: 1.4;
+  padding: 1.25rem 1.5rem;
+  margin: 0.85rem 0;
+  border-radius: 6px;
+  overflow: auto;
+}
+
+body:not(.-light) pre code {
+  margin: 0;
+  color: #fff !important;
+  padding: 0;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+div[class*='language-'] {
+  position: relative;
+  background-color: #001318;
+  border-radius: 6px;
+}
+
+div[class~='language-php']:before {
+  content: 'php';
+  position: absolute;
+  z-index: 3;
+  top: 0.8em;
+  right: 1em;
+  font-size: 0.75rem;
+  color: #fff;
+}
+
 /**
  * prism.js tomorrow night eighties for JavaScript, CoffeeScript, CSS and HTML.
  * Based on https://github.com/chriskempson/tomorrow-theme
@@ -56,21 +91,25 @@ p img {
   color: #e2777a;
 }
 
-.token.function-name {
+.token.function {
   color: #6196cc;
+}
+
+.token.keyword {
+  font-style: italic !important;
 }
 
 .token.boolean,
 .token.number,
 .token.function {
-  color: #f08d49;
+  color: #22d3ee;
 }
 
 .token.property,
 .token.class-name,
 .token.constant,
 .token.symbol {
-  color: #f8c555;
+  color: #fff;
 }
 
 .token.selector,
@@ -78,7 +117,7 @@ p img {
 .token.atrule,
 .token.keyword,
 .token.builtin {
-  color: #cc99cd;
+  color: #e879f9;
 }
 
 .token.string,
@@ -86,7 +125,7 @@ p img {
 .token.attr-value,
 .token.regex,
 .token.variable {
-  color: #7ec699;
+  color: #bef264;
 }
 
 .token.operator,
@@ -118,7 +157,7 @@ body:not(.-light) {
 }
 
 body:not(.-light) p,
-body:not(.-light) span,
+body:not(.-light) span:not(.token),
 body:not(.-light) b,
 body:not(.-light) i,
 body:not(.-light) time,
@@ -138,7 +177,8 @@ body:not(.-light) td {
   color: #fff !important;
 }
 
-body:not(.-light) a:not([href="#"]),
+body:not(.-light) a:not([href='#']),
+body:not(.-light) .green,
 body:not(.-light) code {
   color: #3eaf7c !important;
 }

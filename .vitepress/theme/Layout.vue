@@ -11,11 +11,15 @@
           />
           <span v-if="!isIndex" class="hidden md:inline">Leaf Blog</span>
         </a>
-        <div class="text-base text-gray-500 leading-5">
-          <a href="#" style="margin-right:20px;" @click="toggleMode">Toggle Theme</a>
+        <div class="text-base text-gray-500 leading-5 flex">
+          
+          <a class="hover:text-gray-700 green" href="#" @click="toggleMode">
+            <SunIcon size="1.3x" />
+          </a>
 
           <a
             class="hover:text-gray-700"
+            style="margin-left: 15px;"
             href="https://leafphp.dev"
             target="_blank"
             rel="noopener"
@@ -36,21 +40,19 @@ import { computed, onMounted } from 'vue'
 import { useRoute } from 'vitepress'
 import Home from './Home.vue'
 import Article from './Article.vue'
+import { MoonIcon, SunIcon } from '@zhuowenli/vue-feather-icons'
 
-let isDark = typeof window !== 'undefined' && (window.localStorage["isDark"] || false);
+let isDark = (typeof window !== 'undefined' && (window.localStorage["isDark"] || false));
 
 const route = useRoute()
 const isIndex = computed(() => route.path.replace(/index.html$/, '') === '/');
 
 onMounted(() => {
-  console.log('mounted', isDark);
   applyMode();
 });
 
 const applyMode = () => {
   const body = document.body;
-
-  console.log(isDark);
 
   if (isDark === 'true' || isDark === true) {
     body.classList.remove("-light");
@@ -64,8 +66,10 @@ const toggleMode = () => {
     return;
   }
 
-  window.localStorage["isDark"] = !isDark;
-  isDark = !isDark;
+  const newMode = !isDark;
+
+  window.localStorage["isDark"] = newMode;
+  isDark = newMode;
 
   console.log(isDark, window.localStorage["isDark"]);
 
