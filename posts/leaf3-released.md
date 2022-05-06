@@ -88,7 +88,7 @@ Check out the [official migration guide](https://leafphp.dev/docs/migration/othe
 
 ## PHP Support
 
-| Engine             |  PHP 7.3  |  PHP 7.4  |  PHP 8.0  |  PHP 8.1  |
+| Engine             | PHP 7.0-3 |  PHP 7.4  |  PHP 8.0  |  PHP 8.1  |
 | ------------------ | :-------: | :-------: | :-------: | :-------: |
 | Leaf 2             |    🔥     |     ⚡️     |    ❌     |     ❌    |
 | Leaf 3             |    ⚡️     |     ⚡️     |    ⚡️     |     ⚡️    |
