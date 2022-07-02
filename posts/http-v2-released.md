@@ -32,6 +32,7 @@ If you want to output some JSON with a header `something`, you should always set
 response()->withHeader('something', 'value')->json('data');
 // ❌ HEADER ERROR
 response()->json('data')->withHeader('something', 'value');
+```
 
 ### xml method
 

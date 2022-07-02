@@ -37,6 +37,20 @@ export default defineConfig({
     [
       'meta',
       {
+        name: 'twitter:card',
+        content: 'summary_large_image'
+      }
+    ],
+    [
+      'meta',
+      {
+        name: 'og:type',
+        content: 'website'
+      }
+    ],
+    [
+      'meta',
+      {
         name: 'og:image',
         content:
           'https://repository-images.githubusercontent.com/214705101/0ff19323-d2c5-46f5-a582-0b1f3a6eabcc'
