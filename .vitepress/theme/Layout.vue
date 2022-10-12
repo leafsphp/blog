@@ -12,7 +12,6 @@
           <span v-if="!isIndex" class="hidden md:inline">Leaf Blog</span>
         </a>
         <div class="text-base text-gray-500 leading-5 flex">
-          
           <a class="hover:text-gray-700 green" href="#" @click="toggleMode">
             <SunIcon size="1.3x" />
           </a>
