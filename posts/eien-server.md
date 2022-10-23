@@ -8,7 +8,7 @@ twitter: '@mychidarko'
 
 <img src="https://user-images.githubusercontent.com/26604242/195359788-e4118af3-7d83-4d74-80e7-0ca49cc4899b.jpg" style="border-radius: 8px; margin-bottom: 15px;" alt="" />
 
-<p>Eien is Leaf's implementation of a high-speed, high-performance server based on powerful tools like <a href="https://swoole.co.uk/">Open Swoole</a> and <a href="https://github.com/swoole/swoole-src">Swoole</a>. Eien loads your app in memory and shares a state between requests to achieve amazing speeds, up to 40x.</p>
+<p>Eien is Leaf's implementation of a high-speed, high-performance server based on powerful tools like <a href="https://swoole.co.uk/">Open Swoole</a> and <a href="https://github.com/swoole/swoole-src">Swoole</a>. Eien loads your app in memory and shares a state between requests to achieve amazing speeds, up to 40x. Read the docs @ <a href="https://leafphp.dev/modules/eien">leafphp.dev/modules/eien</a></p>
 
 ---
 
