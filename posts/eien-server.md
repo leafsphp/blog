@@ -1,6 +1,6 @@
 ---
 title: Eien Server
-date: 2022-10-12
+date: 2022-10-23
 author: Michael Darko
 github: mychidarko
 twitter: '@mychidarko'
@@ -49,11 +49,11 @@ Eien has been configured to rely on some features available in only v3 of Leaf. 
   </div>
   <div>
     <b>Leaf WITH Eien:</b>
-    <img width="746" alt="IMG_5389" src="https://user-images.githubusercontent.com/26604242/194716369-6d65a656-8a35-48e9-aabf-b34ada8d5ae3.png">
+    <img width="746" alt="IMG_5389" src="https://user-images.githubusercontent.com/26604242/197391242-05bcc64f-db4f-45d8-a657-3f79367c4046.png">
   </div>
 </div>
 
-***From the Benchmarks above, Leaf was 34x faster when used with Eien.***
+***From the Benchmarks above, Leaf was 40x faster when used with Eien.***
 
 ## Basic Usage
 
