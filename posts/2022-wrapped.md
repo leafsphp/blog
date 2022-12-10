@@ -81,3 +81,4 @@ Eien wasn't just created to be an insane performance boost but also serve as the
 - 7 new financial contributors
 - 24 new code contributors
 - 400 new twitter followers
+- 56 new Discord members
