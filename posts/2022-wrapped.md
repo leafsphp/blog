@@ -8,7 +8,7 @@ twitter: '@mychidarko'
 
 <!-- markdownlint-disable no-inline-html -->
 
-<img src="https://user-images.githubusercontent.com/26604242/166827277-ced6c437-5b9b-47be-84b1-3516547da08a.jpg" style="border-radius: 8px; margin-bottom: 15px;" alt="" />
+<img src="https://user-images.githubusercontent.com/26604242/206849712-e7e70f5a-18d5-4eb0-b2fc-74ab13b33827.jpg" style="border-radius: 8px; margin-bottom: 15px;" alt="" />
 
 Earlier this year, we shared a roadmap for what we had in store for Leaf throughout the year. This article is to take us through what we've been able to achieve, both listed and unlisted on our roadmap.
 
@@ -48,15 +48,15 @@ Since Leaf is relatively new, the only source of education for Leaf users is the
 
 - We started [Codelabs](https://codelabs.leafphp.dev) earlier and even had some community users contribute their experiences, however, updating Codelabs has been more and more difficult for our only our maintainers to handle. We do promise to make more effort in that section.
 
-- We published a couple of videos on the [Leaf YouTube Channel](https://www.youtube.com/channel/UCllE-GsYy10RkxBUK0HIffw) on topics like the Leaf CLI, testing and basic setup. These videos have been very successful. The channel has also received a ton of new subscribers and we even secured the [@leafphp](https://www.youtube.com/leafphp) username, however, just as with Codelabs, it's been too much effort for solely our maintainers. We still make videos but just take a really long time to get them done.
+- We published a couple of videos on the [Leaf YouTube Channel](https://www.youtube.com/channel/UCllE-GsYy10RkxBUK0HIffw) on topics like the Leaf CLI, testing and basic setup. These videos have been very successful. The channel has also received a ton of new subscribers and we even secured the [@leafphp](https://www.youtube.com/@leafphp) username, however, just as with Codelabs, it's been too much effort for solely our maintainers. We still make videos but just take a really long time to get them done.
 
 - Since work on the 2 channels listed above was super slow, we decided to create an interactive tutorial which allows you to run Leaf directly in your browser. This tutorial covers pretty much everything you need to build a Leaf application with advanced features from scratch. The community's adoption of this tutorial was superb and some users even put in requests for things they didn't understand.
 
-Overall, we can do better in the content delivery section, however, we're glad to know that users have been able to take the material given on our docs and building amazing products used all around the world.
+Overall, we can do better in the content delivery section, however, we're glad to know that users have been able to take the material given on our docs and build amazing products used all around the world.
 
 ## Leaf 2.7
 
-Leaf 2.7 which was a compatability build for version 3 was scheduled to be released before the end of 2022, however, we weren't able to meet this timeline. We instead pursued pushing Leaf 3 in a more developer friendly direction while also tackling pressing issues and improving performance as much as possible. The release of Leaf 2.7 which is currently in the workshop will be pushed back indefinetely until we've gotten Leaf 3 and important modules working the way our maintainers and community believe they should work.
+Leaf 2.7 which is a compatability build for version 3 was scheduled to be released before the end of 2022, however, we weren't able to meet this timeline. We instead worked towards pushing Leaf 3 in a more developer friendly direction while also tackling pressing issues and improving performance as much as possible. The release of Leaf 2.7 which is currently in the workshop will be pushed back indefinitely until we've gotten Leaf 3 and important modules working the way our maintainers and community believe they should work.
 
 ## Eien Server
 
