@@ -67,3 +67,17 @@ Eien wasn't just created to be an insane performance boost but also serve as the
 ## What's next?
 
 2022 has been a very productive year for Leaf and all of our libraries. We've pulled of a whole lot of insane stunts, integrations and collaborations with other open-sourced projects like Viewi. We've also had more financial support than the first 2 years put together and we plan to take this to another level by fully funding our maintainers to fully work on Leaf and all of our libraries. This is the main goal we wish to achieve in 2023 as this will allow our maintainers and community to grow Leaf even more than what we've seen this year.
+
+## Stats for the year
+
+![leaf3-STATS](https://user-images.githubusercontent.com/26604242/206864108-bfbdbf1f-8cfb-4b04-912e-c960ad312ec9.jpg)
+
+- 1,182 commits
+- 436 stars
+- 37 issues closed
+- ~3k views on YouTube videos
+- 72 YouTube subscribers
+- $269 in donations
+- 7 new financial contributors
+- 24 new code contributors
+- 400 new twitter followers
