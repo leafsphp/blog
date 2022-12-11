@@ -72,11 +72,11 @@ Eien wasn't just created to be an insane performance boost but also serve as the
 
 ![leaf3-STATS](https://user-images.githubusercontent.com/26604242/206864108-bfbdbf1f-8cfb-4b04-912e-c960ad312ec9.jpg)
 
-- 1,182 commits
-- 436 stars
-- 37 issues closed
-- ~3k views on YouTube videos
-- 72 YouTube subscribers
+- 1,182 new commits
+- 436 new stars
+- 37 new issues closed
+- ~3k new views on YouTube videos
+- 72 new YouTube subscribers
 - $269 in donations
 - 7 new financial contributors
 - 24 new code contributors
