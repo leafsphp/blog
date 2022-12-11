@@ -1,6 +1,6 @@
 ---
 title: 2022 Wrapped
-date: 2022-12-05
+date: 2022-12-11
 author: Michael Darko
 github: mychidarko
 twitter: '@mychidarko'
