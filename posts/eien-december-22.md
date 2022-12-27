@@ -87,4 +87,4 @@ app()->run();
 
 Although this is viable, it's not the best way to send data to the client. The best way to send data to the client is to use the `response()` function. This is because Eien is trained to handle responses from the Leaf response. This means that Eien will be able to better handle responses that come from Leaf modules like Leaf Auth, Leaf Cache, Leaf Router, Leaf Validation, and more.
 
-**As mentioned before, Eien WebSockets are still in the dev phase, we'll need your help to make them production ready. Please open an issue on the [Eien repo](https://github.com/leafsphp/eien) if you encounter any mishaps, thanks.**
+<b>As mentioned before, Eien WebSockets are still in the dev phase, we'll need your help to make them production ready. Please open an issue on the [Eien repo](https://github.com/leafsphp/eien) if you encounter any mishaps, thanks.</b>
