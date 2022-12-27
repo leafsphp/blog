@@ -18,7 +18,7 @@ This month, a whole lot of work has been done to improve Eien which was started 
 
 ## Performance
 
-We've made a ton of performance improvements to Eien this months, from the way data is handled to the way our internals work. We've tidied up a lot of code and made sure that Eien is as fast as possible. All of these led to more than a 50% increase in performance. Eien now handles an average of 90k requests per second on a single thread compared to 40k requests per second in October.
+We've made a ton of performance improvements to Eien in December, from the way data is handled to the way our internals work. We've tidied up a lot of code and made sure that Eien is as fast as possible. All of these led to more than a 50% increase in performance. Eien now handles an average of 90k requests per second on a single thread compared to 40k requests per second in October.
 
 ![benchmarks](https://user-images.githubusercontent.com/26604242/209473926-43485e5b-7ab2-4851-a5ee-fdb2b90973e7.png)
 
@@ -26,13 +26,13 @@ We've made a ton of performance improvements to Eien this months, from the way d
 
 Now for the main feature we added this month, WebSockets. We've added WebSockets to Eien to make it easier to build real-time applications. WebSockets allow you to have a persistent connection between a client and a server. This means that the client can send data to the server and the server can send data to the client at any time. This is great for building real-time applications like chat apps, multiplayer games, and more.
 
-<i>Note that WebSockets functionality is still a beta feature, and only available on the beta channel. You'll need to install the beta versions of Leaf, Eien and Leaf Http to use websockets. To do this, run:</i>
+<i>Note that WebSocket functionality is still a beta feature, and is only available on the beta channel. You'll need to install the beta versions of Leaf, Eien and Leaf Http to use websockets. To do this, run:</i>
 
 ```sh
 leaf install leaf@3.2.2-beta eien@dev-main http@dev-main
 ```
 
-Since Eien is just the server part of your app, you need to interface with Leaf to actually use WebSockets. To do this, you need to use the `ws` method in Leaf. The `ws` method is used to create a WebSocket handler. It takes two arguments which are the URL of the WebSocket server and the handler. Here's an example:
+Since Eien is just the server layer of your app, you need to interface with Leaf to actually use WebSockets. To do this, we've provided a `ws` method on your Leaf app instance. The `ws` method is used to create a WebSocket handler. It takes two arguments which are the URL of the WebSocket server and the handler. Here's an example:
 
 ```php
 <?php
