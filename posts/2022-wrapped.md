@@ -10,7 +10,9 @@ twitter: '@mychidarko'
 
 <img src="https://user-images.githubusercontent.com/26604242/206849712-e7e70f5a-18d5-4eb0-b2fc-74ab13b33827.jpg" style="border-radius: 8px; margin-bottom: 15px;" alt="" />
 
+<p>
 Earlier this year, we shared a roadmap for what we had in store for Leaf throughout the year. This article is to take us through what we've been able to achieve, both listed and unlisted on our roadmap.
+</p>
 
 ---
 

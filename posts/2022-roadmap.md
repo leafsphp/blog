@@ -8,7 +8,7 @@ twitter: '@mychidarko'
 
 <img src="https://user-images.githubusercontent.com/26604242/166827277-ced6c437-5b9b-47be-84b1-3516547da08a.jpg" style="border-radius: 8px; margin-bottom: 15px;" alt="" />
 
-Over the past couple of months, we've talked about our plans for Leaf, but never into details. In this post, we share high-level details of our roadmap, so the community can see our priorities and make plans based off the work we are doing.
+<p>Over the past couple of months, we've talked about our plans for Leaf, but never into details. In this post, we share high-level details of our roadmap, so the community can see our priorities and make plans based off the work we are doing.</p>
 
 ---
 
