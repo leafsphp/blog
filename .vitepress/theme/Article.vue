@@ -1,4 +1,5 @@
 <script setup>
+import './tw';
 import Date from './Date.vue'
 import Author from './Author.vue'
 import { computed } from 'vue'
