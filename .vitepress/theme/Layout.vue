@@ -30,6 +30,10 @@ import Home from './Home.vue'
 import Article from './Article.vue'
 import { SunIcon } from '@zhuowenli/vue-feather-icons'
 
+import('twitter-widgets').then((widgets) => {
+  widgets.load()
+});
+
 let isDark = (typeof window !== 'undefined' && (window.localStorage["isDark"] || false));
 
 const route = useRoute()
