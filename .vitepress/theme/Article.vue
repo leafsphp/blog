@@ -8,9 +8,11 @@ import { data as posts } from '../posts.data'
 const route = useRoute()
 const { frontmatter: data } = useData()
 
-import('twitter-widgets').then((widgets) => {
-  widgets.load()
-});
+if (typeof window !== 'undefined') {
+  import('twitter-widgets').then((widgets) => {
+    widgets.load()
+  });
+}
 
 function findCurrentIndex() {
   return posts.findIndex((p) => {
