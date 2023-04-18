@@ -24,12 +24,14 @@
 </template>
 
 <script setup>
-import 'https://platform.twitter.com/widgets.js'
+import * as Twitter from 'twitter-widgets'
 import { computed, onMounted } from 'vue'
 import { useRoute } from 'vitepress'
 import Home from './Home.vue'
 import Article from './Article.vue'
 import { MoonIcon, SunIcon } from '@zhuowenli/vue-feather-icons'
+
+Twitter.load()
 
 let isDark = (typeof window !== 'undefined' && (window.localStorage["isDark"] || false));
 
