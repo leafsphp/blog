@@ -5,9 +5,14 @@ import { computed } from 'vue'
 import { useData, useRoute } from 'vitepress'
 import { data as posts } from '../posts.data'
 
+const route = useRoute()
 const { frontmatter: data } = useData()
 
-const route = useRoute()
+if (typeof window !== 'undefined') {
+  import('twitter-widgets').then((widgets) => {
+    widgets.load()
+  });
+}
 
 function findCurrentIndex() {
   return posts.findIndex((p) => {
