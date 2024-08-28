@@ -95,3 +95,5 @@ The road hasn't been easy, but we are more determined than ever to make Leaf the
 Thank you for sticking with us through the ups and downs.
 
 Let's make the rest of this year one to remember for Leaf!
+
+![image](https://github.com/user-attachments/assets/3431a439-e45d-4028-9165-1657fa6ad538)
