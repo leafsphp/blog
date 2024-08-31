@@ -55,7 +55,27 @@ export default defineConfig({
         content:
           'https://repository-images.githubusercontent.com/214705101/0ff19323-d2c5-46f5-a582-0b1f3a6eabcc'
       }
-    ]
+    ],
+    // [
+    //   'script',
+    //   {
+    //     src: 'https://giscus.app/client.js',
+    //     'data-repo': 'leafsphp/blog',
+    //     'data-repo-id': 'R_kgDOGmWb9w',
+    //     'data-category': 'General',
+    //     'data-category-id': 'DIC_kwDOGmWb984Ch-1p',
+    //     'data-mapping': 'pathname',
+    //     'data-strict': '0',
+    //     'data-reactions-enabled': '1',
+    //     'data-emit-metadata': '0',
+    //     'data-input-position': 'top',
+    //     'data-theme': 'preferred_color_scheme',
+    //     'data-lang': 'en',
+    //     'data-loading': 'lazy',
+    //     crossorigin: 'anonymous',
+    //     async: true
+    //   }
+    // ],
   ],
   vite: {
     build: {
