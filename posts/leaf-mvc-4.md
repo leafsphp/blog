@@ -6,7 +6,7 @@ github: mychidarko
 twitter: '@mychidarko'
 ---
 
-<img src="https://github.com/user-attachments/assets/fd75740b-e879-45c2-a6c7-c083abacd0a5" style="border-radius: 8px; margin-bottom: 15px;" alt="" />
+<img src="https://github.com/user-attachments/assets/fd75740b-e879-45c2-a6c7-c083abacd0a5" style="border-radius: 8px; margin-bottom: 15px; border: 1px solid rgba(62,175,124,.1);" alt="" />
 
 <p>
 They say the best changes are the ones you don’t see coming, and that's exactly the case here. What started as Leaf MVC v3.8 turned into something much bigger—an idea for a major release we couldn’t ignore.

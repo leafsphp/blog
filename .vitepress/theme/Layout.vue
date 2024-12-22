@@ -1,22 +1,25 @@
 <template>
   <div class="antialiased">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 xl:max-w-5xl xl:px-0">
+    <div class="lg:max-w-screen-md mx-auto px-4 sm:px-6 xl:px-0">
       <nav class="flex justify-between items-center py-10 font-bold">
         <a class="text-xl" href="/" aria-label="Leaf Blog">
           <img class="inline-block mr-2" style="width: 36px; height: 36px" alt="logo" src="/logo-circle.png" />
           <span v-if="!isIndex" class="hidden md:inline">Leaf Blog</span>
         </a>
         <div class="text-base text-gray-500 leading-5 flex">
-          <a class="hover:text-gray-700 green" href="#" @click="toggleMode">
-            <SunIcon size="1.3x" />
+          <a class="!" href="#" @click="toggleMode">
+            <SunIcon size="1.3x" class="text-gray-500" />
           </a>
 
-          <a class="hover:text-gray-700" style="margin-left: 15px;" href="https://leafphp.dev" target="_blank"
-            rel="noopener">leafphp.dev →</a>
+          <a class="!text-gray-700" style="margin-left: 15px;" href="https://discord.gg/Pkrm9NJPE3">DISCORD</a>
+          <a class="!text-gray-700" style="margin-left: 15px;" href="https://leafphp.dev/support.html">SPONSOR</a>
+
+          <a class="!text-gray-700" style="margin-left: 15px;" href="https://leafphp.dev" target="_blank"
+            rel="noopener">DOCS →</a>
         </div>
       </nav>
     </div>
-    <main class="max-w-3xl mx-auto px-4 sm:px-6 xl:max-w-5xl xl:px-0">
+    <main class="lg:max-w-screen-md mx-auto px-4 sm:px-6 xl:px-0">
       <Home v-if="isIndex" />
       <Article v-else />
     </main>
