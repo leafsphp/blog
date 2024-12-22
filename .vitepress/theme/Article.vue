@@ -30,8 +30,8 @@ const prevPost = computed(() => posts[findCurrentIndex() + 1])
 </script>
 
 <template>
-  <article class="xl:divide-y xl:divide-gray-200">
-    <header class="pt-6 xl:pb-10 space-y-1 text-center">
+  <article class="">
+    <header class="pt-6 space-y-1 text-center">
       <Date :date="date" />
       <h1 class="
           text-3xl
@@ -48,15 +48,13 @@ const prevPost = computed(() => posts[findCurrentIndex() + 1])
 
     <div class="
         divide-y
-        xl:divide-y-0
         divide-gray-200
-        xl:grid xl:grid-cols-4 xl:gap-x-10
         pb-16
         xl:pb-20
-      " style="grid-template-rows: auto 1fr">
-      <Author />
+      ">
       <div class="divide-y divide-gray-200 xl:pb-0 xl:col-span-3 xl:row-span-2">
         <Content class="prose max-w-none pt-10 pb-8" />
+        <Author />
       </div>
 
       <footer class="
