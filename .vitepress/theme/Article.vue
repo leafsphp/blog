@@ -55,6 +55,9 @@ const prevPost = computed(() => posts[findCurrentIndex() + 1])
       <div class="divide-y divide-gray-200 xl:pb-0 xl:col-span-3 xl:row-span-2">
         <Content class="prose max-w-none pt-10 pb-8" />
         <Author />
+        <iframe src="https://leafphp.substack.com/embed"
+          style="display: #041D24; margin-bottom: 20px; border-radius: 12px; border: none !important;" width="100%" height="320" frameborder="0"
+          scrolling="no"></iframe>
       </div>
 
       <footer class="

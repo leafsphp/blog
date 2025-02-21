@@ -5,6 +5,8 @@ import { data as posts } from '../posts.data'
 
 <template>
   <ul>
+    <iframe src="https://leafphp.substack.com/embed" style="display: #041D24; margin-bottom: 20px; border-radius: 12px;" width="100%" height="320" frameborder="0"
+      scrolling="no"></iframe>
     <li class="py-5 px-8 shadow-md mb-10 rounded-xl ring-1 ring-[rgba(62,175,124,.3)]"
       v-for="{ title, href, date, excerpt } of posts">
       <article>
