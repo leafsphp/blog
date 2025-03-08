@@ -182,3 +182,7 @@ body:not(.-light) .green,
 body:not(.-light) code {
   color: #3eaf7c !important;
 }
+
+body:not(.-light) strong {
+  color: #fff !important;
+}
