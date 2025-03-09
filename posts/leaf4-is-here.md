@@ -86,7 +86,9 @@ Leaf MVC’s view layer is now even more flexible. While Blade is still availabl
 
 ## What this means for you
 
-Leaf 4 isn’t just an update—it’s a rethinking of what a PHP framework should be. It’s about building fast, iterating without friction, and shipping your ideas sooner. With Leaf 4, the only question left is: **how fast can you build?**
+Leaf 4 isn’t just an update—it’s a rethinking of what a PHP framework should be. It’s about building fast, iterating without friction, and shipping your ideas sooner. With Leaf 4, the only question left is:
+
+![Leaf 4](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff8969713-4abb-47fa-b9fc-2e0c6d42adb6_1500x500.jpeg)
 
 ## Upgrading from Leaf MVC 3
 
