@@ -1,6 +1,6 @@
 ---
 title: Leaf 4.0 is finally here! Build 10x Faster and Lighter
-date: 2025-03-08
+date: 2025-03-09
 author: Michael Darko
 github: mychidarko
 twitter: '@mychidarko'
