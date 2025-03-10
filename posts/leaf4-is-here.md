@@ -121,3 +121,5 @@ composer install leafs/leaf:^4.0 -W
 This release wouldn’t be possible without the Leaf community—your feedback, ideas, and support have shaped this project, and we’re incredibly grateful. Leaf 4 is here, and we can’t wait to see what you create with it.
 
 If you’re new, there’s never been a better time to dive in. Let’s build something amazing together!
+
+## Happy coding! 🚀
