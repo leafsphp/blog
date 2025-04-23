@@ -56,6 +56,24 @@ export default defineConfig({
           'https://repository-images.githubusercontent.com/214705101/0ff19323-d2c5-46f5-a582-0b1f3a6eabcc'
       }
     ],
+    [
+      'script',
+      {
+        async: '',
+        src: 'https://www.googletagmanager.com/gtag/js?id=G-MG8M0KBY2E'
+      }
+    ],
+    [
+      'script',
+      {},
+      `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-MG8M0KBY2E');
+      `
+    ]
     // [
     //   'script',
     //   {
