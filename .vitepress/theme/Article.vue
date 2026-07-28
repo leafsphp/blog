@@ -17,7 +17,6 @@ if (typeof window !== 'undefined') {
 function findCurrentIndex() {
   return posts.findIndex((p) => {
     if (p.href === route.path && typeof p === 'object') {
-      // console.log(p, 'p')
       return p
     }
   })
@@ -30,63 +29,66 @@ const prevPost = computed(() => posts[findCurrentIndex() + 1])
 </script>
 
 <template>
-  <article class="">
-    <header class="pt-6 space-y-1 text-center">
-      <Date :date="date" />
-      <h1 class="
-          text-3xl
-          leading-9
-          font-extrabold
-          text-gray-900
-          tracking-tight
-          sm:text-4xl sm:leading-10
-          md:text-5xl md:leading-14
-        ">
+  <article>
+    <header class="pt-14 space-y-4">
+      <p class="mono-label" style="color: var(--text-3)">
+        <time :datetime="date?.time">{{ date?.string }}</time>
+      </p>
+      <h1 class="text-3xl leading-[1.1] font-bold tracking-tight sm:text-4xl md:text-5xl">
         {{ data.title }}
       </h1>
+      <Author />
     </header>
 
-    <div class="
-        divide-y
-        divide-gray-200
-        pb-16
-        xl:pb-20
-      ">
-      <div class="divide-y divide-gray-200 xl:pb-0 xl:col-span-3 xl:row-span-2">
+    <div class="pb-16 xl:pb-20">
+      <div class="border-t" style="border-color: var(--line)">
         <Content class="prose max-w-none pt-10 pb-8" />
-        <Author />
-        <iframe src="https://leafphp.substack.com/embed"
-          style="display: #041D24; margin-bottom: 20px; border-radius: 12px; border: none !important;" width="100%" height="320" frameborder="0"
-          scrolling="no"></iframe>
+        <div class="tile" style="overflow: hidden">
+          <iframe src="https://leafphp.substack.com/embed" width="100%" height="320" frameborder="0"
+            scrolling="no"></iframe>
+        </div>
       </div>
 
-      <footer class="
-          text-sm
-          font-medium
-          leading-5
-          divide-y divide-gray-200
-          xl:col-start-1 xl:row-start-2
-        ">
-        <div v-if="nextPost" class="py-8">
-          <h2 class="text-xs tracking-wide uppercase text-gray-500">
-            Next Article
-          </h2>
-          <div class="link">
-            <a :href="nextPost.href">{{ nextPost.title }}</a>
-          </div>
-        </div>
-        <div v-if="prevPost" class="py-8">
-          <h2 class="text-xs tracking-wide uppercase text-gray-500">
-            Previous Article
-          </h2>
-          <div class="link">
-            <a :href="prevPost.href">{{ prevPost.title }}</a>
-          </div>
+      <footer class="mt-10">
+        <div class="grid sm:grid-cols-2 gap-px" style="background: var(--line); border: 1px solid var(--line)">
+          <a v-if="prevPost" :href="prevPost.href" class="pager-tile">
+            <span class="mono-label" style="color: var(--text-3)">← Previous article</span>
+            <span class="pager-title">{{ prevPost.title }}</span>
+          </a>
+          <div v-else class="pager-tile" aria-hidden="true"></div>
+          <a v-if="nextPost" :href="nextPost.href" class="pager-tile sm:text-right">
+            <span class="mono-label" style="color: var(--text-3)">Next article →</span>
+            <span class="pager-title">{{ nextPost.title }}</span>
+          </a>
+          <div v-else class="pager-tile" aria-hidden="true"></div>
         </div>
         <div class="pt-8">
-          <a class="link" href="/">← Back to the blog</a>
+          <a class="link mono-label" href="/">← Back to the blog</a>
         </div>
       </footer>
     </div>
   </article>
 </template>
+
+<style scoped>
+.pager-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 22px;
+  background: var(--panel);
+  min-height: 88px;
+}
+
+.pager-title {
+  color: var(--text-1);
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.4;
+  transition: color 150ms ease;
+}
+
+a.pager-tile:hover .pager-title {
+  color: var(--brand);
+}
+</style>

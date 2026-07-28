@@ -1,21 +1,19 @@
 <template>
   <div class="antialiased">
-    <div class="lg:max-w-screen-md mx-auto px-4 sm:px-6 xl:px-0">
-      <nav class="flex justify-between items-center py-10 font-bold">
-        <a class="text-xl" href="/" aria-label="Leaf Blog">
-          <img class="inline-block mr-2" style="width: 36px; height: 36px" alt="logo" src="/logo-circle.png" />
-          <span v-if="!isIndex" class="hidden md:inline">Leaf Blog</span>
+    <div class="border-b" style="border-color: var(--line)">
+      <nav class="lg:max-w-screen-md mx-auto px-4 sm:px-6 xl:px-0 flex justify-between items-center py-5">
+        <a class="flex items-center font-bold" style="color: var(--text-1)" href="/" aria-label="Leaf Blog">
+          <img class="inline-block mr-2.5" style="width: 30px; height: 30px" alt="logo" src="/logo-circle.png" />
+          <span class="hidden md:inline text-[15px] tracking-tight">Leaf Blog</span>
         </a>
-        <div class="text-base text-gray-500 leading-5 flex">
-          <a class="!" href="#" @click="toggleMode">
-            <SunIcon size="1.3x" class="text-gray-500" />
+        <div class="flex items-center gap-5">
+          <a href="#" aria-label="Toggle theme" @click.prevent="toggleMode">
+            <SunIcon size="1.1x" style="color: var(--text-3)" />
           </a>
-
-          <a class="!text-gray-700" style="margin-left: 15px;" href="https://discord.gg/Pkrm9NJPE3">DISCORD</a>
-          <a class="!text-gray-700" style="margin-left: 15px;" href="https://leafphp.dev/support.html">SPONSOR</a>
-
-          <a class="!text-gray-700" style="margin-left: 15px;" href="https://leafphp.dev" target="_blank"
-            rel="noopener">DOCS →</a>
+          <a class="mono-label nav-link" href="https://discord.gg/Pkrm9NJPE3">Discord</a>
+          <a class="mono-label nav-link" href="https://leafphp.dev/support/">Sponsor</a>
+          <a class="mono-label nav-link !text-[var(--brand)]" href="https://leafphp.dev" target="_blank"
+            rel="noopener">Docs →</a>
         </div>
       </nav>
     </div>
@@ -23,6 +21,12 @@
       <Home v-if="isIndex" />
       <Article v-else />
     </main>
+    <footer class="border-t mt-16" style="border-color: var(--line)">
+      <div class="lg:max-w-screen-md mx-auto px-4 sm:px-6 xl:px-0 flex flex-wrap items-center justify-between gap-3 py-8">
+        <span class="text-sm" style="color: var(--text-3)">Made with 🍃 by the Leaf team</span>
+        <span class="mono-label" style="color: var(--text-3)">leafphp.dev</span>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -68,8 +72,17 @@ const toggleMode = () => {
   window.localStorage["isDark"] = newMode;
   isDark = newMode;
 
-  console.log(isDark, window.localStorage["isDark"]);
-
   applyMode();
 };
 </script>
+
+<style scoped>
+.nav-link {
+  color: var(--text-3);
+  transition: color 150ms ease;
+}
+
+.nav-link:hover {
+  color: var(--text-1);
+}
+</style>
