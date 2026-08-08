@@ -1,6 +1,7 @@
 <script setup>
 import Date from './Date.vue'
 import Author from './Author.vue'
+import Ad from './Ad.vue'
 import { computed } from 'vue'
 import { useData, useRoute } from 'vitepress'
 import { data as posts } from '../posts.data'
@@ -47,6 +48,7 @@ const prevPost = computed(() => posts[findCurrentIndex() + 1])
           <iframe src="https://leafphp.substack.com/embed" width="100%" height="320" frameborder="0"
             scrolling="no"></iframe>
         </div>
+        <Ad />
       </div>
 
       <footer class="mt-10">

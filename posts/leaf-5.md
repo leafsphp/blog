@@ -4,6 +4,13 @@ date: 2026-07-28
 author: Michael Darko
 github: mychidarko
 twitter: '@mychidarko'
+contributors:
+  - fadrian06
+  - MischaKr
+  - ibnsultan
+  - zehntinel
+  - ghosthi
+  - srcarvalho12
 ---
 
 <p>
@@ -54,6 +61,36 @@ That's on top of 25+ modules — grab exactly what you need, nothing else.
 
 Why framework-agnostic? Partly because good tools deserve a bigger audience. But honestly, it's also an AI-era bet: when an assistant is choosing a library for a task, small, sharp, well-documented tools win. We want Leaf's tools to be the obvious pick whether or not the app is a Leaf app.
 
+## Where Leaf 5 fits
+
+Leaf isn't only competing with other frameworks. It's competing with the moment where an early product starts working, users show up, and the codebase needs to become more serious without slowing you down.
+
+The classic options both tax you at that moment. The tiny-router path gives you a fast start, then charges you product time to choose and wire auth, database patterns, validation, mail, queues, views, and structure yourself. The heavy-framework path is serious from day one, but your first version inherits more concepts and more ceremony than the product needs yet. Leaf's path is to start small, add first-party product modules when your app asks for them, move into MVC when structure earns its place, and keep the whole thing readable to humans and agents as it grows.
+
+So, honestly:
+
+Choose Laravel when you want the largest PHP product ecosystem and you're happy to adopt its full application model.
+
+Choose Symfony when you need deep architecture control, mature components, and enterprise-grade composition.
+
+Choose Slim when you want the smallest possible HTTP layer and you're comfortable assembling the rest of the product stack yourself.
+
+Choose Leaf when you want to get a real PHP product into users' hands quickly, keep the app small enough to understand, and still have a path to auth, data, frontend, jobs, billing, deployment, and AI-assisted maintenance as the product grows.
+
+## The numbers still matter
+
+The product story is the point, but performance is still part of the promise. Leaf 5 keeps framework overhead low so your product gets more of the request budget:
+
+| Routes | Leaf 5 | Symfony Routing | Laravel routing | Slim dispatch |
+| --- | --- | --- | --- | --- |
+| 100 routes | **6.48ms** | 92.06ms (14.2x) | 192.69ms (29.8x) | 10.81ms (1.7x) |
+| 500 routes | **6.29ms** | 257.59ms (40.9x) | 531.60ms (84.5x) | 11.16ms (1.8x) |
+| 1,000 routes | **6.51ms** | 477.13ms (73.3x) | 953.34ms (146.5x) | 11.48ms (1.8x) |
+
+This compares route lookup and dispatch overhead, not full application throughput: 10,000 lookups against a mixed static/dynamic route table, alternating exact and parameterized hits, averaged over five runs on PHP 8.2. Every framework resolves the same URIs, request objects for the Laravel column are pre-built outside the timed loop, and each column measures routing work only — Illuminate Routing for Laravel, the `symfony/routing` UrlMatcher, and Slim 4's FastRoute-backed dispatch.
+
+The reason lookups stay flat is that Leaf 5 indexes exact routes and buckets dynamic routes by method and first segment, so exact matches never touch a pattern and dynamic requests only scan their own bucket. The same pass made repeated env reads about 41x faster and URI parsing about 4.4x faster per request.
+
 ## A fresh face for everything
 
 Suppose you've visited [leafphp.dev](https://leafphp.dev) recently, you've seen the new look — and it's not just the docs. Alchemy, Seedling, Fetch, Hana, and this blog all got redesigned around a shared design language: Bricolage Grotesque headings, hairline grids, and each product keeping its own personality and colour. Different homes, same family.
@@ -77,6 +114,8 @@ A few principles kept us honest while building this release, and they're worth w
 We're not done. On the roadmap from here: real-time APIs, better deployment stories, deeper third-party integrations, and more tooling around the shared-context workflow. We'll share each piece here as it lands.
 
 ## Try it
+
+You'll need PHP 8.2 or newer — the same floor as the rest of the modern PHP ecosystem.
 
 ```bash
 composer global require leafs/cli -W

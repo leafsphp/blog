@@ -8,8 +8,8 @@ export default defineConfig({
       'link',
       {
         rel: 'icon',
-        type: 'image/x-icon',
-        href: '/favicon.ico'
+        type: 'image/png',
+        href: 'https://v5-x.leafphp.dev/logo-circle.png'
       }
     ],
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],

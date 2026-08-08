@@ -3,7 +3,7 @@
     <div class="border-b" style="border-color: var(--line)">
       <nav class="lg:max-w-screen-md mx-auto px-4 sm:px-6 xl:px-0 flex justify-between items-center py-5">
         <a class="flex items-center font-bold" style="color: var(--text-1)" href="/" aria-label="Leaf Blog">
-          <img class="inline-block mr-2.5" style="width: 30px; height: 30px" alt="logo" src="/logo-circle.png" />
+          <img class="inline-block mr-2.5" style="width: 30px; height: 30px" alt="logo" src="https://v5-x.leafphp.dev/logo-circle.png" />
           <span class="hidden md:inline text-[15px] tracking-tight">Leaf Blog</span>
         </a>
         <div class="flex items-center gap-5">
