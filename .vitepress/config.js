@@ -64,8 +64,7 @@ export default defineConfig({
       'meta',
       {
         name: 'og:image',
-        content:
-          'https://repository-images.githubusercontent.com/214705101/0ff19323-d2c5-46f5-a582-0b1f3a6eabcc'
+        content: 'https://v5-x.leafphp.dev/leaf5-banner.png'
       }
     ],
     [
