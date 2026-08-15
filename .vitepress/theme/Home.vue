@@ -1,6 +1,17 @@
 <script setup>
 import Date from './Date.vue'
 import { data as posts } from '../posts.data'
+
+const ecosystem = [
+  { name: 'Leaf', tagline: 'The framework', url: 'https://leafphp.dev' },
+  { name: 'Alchemy', tagline: 'QA from one config', url: 'https://alchemy.leafphp.dev' },
+  { name: 'Seedling', tagline: 'Console apps', url: 'https://seedling.leafphp.dev' },
+  { name: 'Auth', tagline: 'Authentication', url: 'https://auth.leafphp.dev' },
+  { name: 'Db', tagline: 'Database', url: 'https://db.leafphp.dev' },
+  { name: 'Fetch', tagline: 'HTTP client', url: 'https://fetch.leafphp.dev' },
+  { name: 'Kata', tagline: 'Design systems for AI', url: 'https://kata.leafphp.dev' },
+  { name: 'Hana JS', tagline: 'Frontend framework', url: 'https://hanabira.dev' },
+]
 </script>
 
 <template>
@@ -12,6 +23,13 @@ import { data as posts } from '../posts.data'
       </h1>
       <p class="mt-4 text-lg" style="color: var(--text-3)">
         Updates, tips &amp; opinions from the maintainers of Leaf PHP.
+      </p>
+      <p class="mono-label mt-6 eco-strip">
+        <span style="color: var(--text-3)">// the family</span>
+        <template v-for="(product, index) in ecosystem" :key="product.name">
+          <a class="eco-link" :href="product.url" target="_blank" rel="noopener" :title="product.tagline">{{ product.name }}</a><span
+            v-if="index < ecosystem.length - 1" style="color: var(--text-3)"> · </span>
+        </template>
       </p>
     </header>
 
@@ -42,6 +60,11 @@ import { data as posts } from '../posts.data'
 </template>
 
 <style scoped>
+.eco-strip { line-height: 2; }
+.eco-strip > span:first-child { margin-right: 10px; }
+.eco-link { text-decoration: none; color: var(--text-1); transition: color 150ms ease; }
+.eco-link:hover { color: var(--brand); }
+
 .post-title {
   color: var(--text-1);
   transition: color 150ms ease;
