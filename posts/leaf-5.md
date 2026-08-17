@@ -16,14 +16,14 @@ contributors:
 <img src="/leaf5-bg-mountains.png" style="width:100%; border-radius: 8px; margin-bottom: 15px;" alt="" />
 
 <p>
-<b>Leaf 5 is the biggest release in Leaf's history</b>, and it's not just a version bump. It's a natural evolution of what a PHP framework should be in a world where you build alongside AI: a product-first framework with project context built in, a family of tools that work in <i>any</i> PHP app, and a promise that your code stays clean, readable, and yours.
+<b>Leaf 5 is the biggest release in Leaf's history.</b> We sat down and rethought what a PHP framework owes you in a world where you build alongside AI: a product-first framework with project context built in, a family of tools that work in <i>any</i> PHP app, and a promise that your code stays clean, readable, and yours.
 </p>
 
 ---
 
 ## Why Leaf 5 exists
 
-Every framework says it makes you faster. But "faster" has changed. Today, you're not just writing code, you're directing it. You describe a feature, your AI assistant drafts it, you review and refine. The bottleneck isn't typing anymore; it's how well your tools understand your app.
+Every framework says it makes you faster. But "faster" has changed. These days you describe a feature, your AI assistant drafts it, and you review and refine. How fast that loop runs depends on one thing: how well your tools understand your app.
 
 Most frameworks were never designed for that. Conventions live in people's heads, structure hides behind abstractions, and an assistant dropped into the codebase has to guess its way around.
 
@@ -65,7 +65,7 @@ Why framework-agnostic? Partly because good tools deserve a bigger audience. But
 
 ## Where Leaf 5 fits
 
-Leaf isn't only competing with other frameworks. It's competing with the moment where an early product starts working, users show up, and the codebase needs to become more serious without slowing you down.
+Leaf's real competition is a moment, the one where your early product starts working, users show up, and the codebase has to grow up without slowing you down.
 
 The classic options both tax you at that moment. The tiny-router path gives you a fast start, then charges you product time to choose and wire auth, database patterns, validation, mail, queues, views, and structure yourself. The heavy-framework path is serious from day one, but your first version inherits more concepts and more ceremony than the product needs yet. Leaf's path is to start small, add first-party product modules when your app asks for them, move into MVC when structure earns its place, and keep the whole thing readable to humans and agents as it grows.
 
@@ -111,7 +111,7 @@ We don't guess at any of this. AI agents build real apps on Leaf, we count every
 
 ## A fresh face for everything
 
-If you've visited [leafphp.dev](https://leafphp.dev) recently, you've seen the new look, and it's not just the docs. Alchemy, Seedling, Fetch, Hana, and this blog all got redesigned around a shared design language: Bricolage Grotesque headings, hairline grids, and each product keeping its own personality and colour. Different homes, same family.
+If you've visited [leafphp.dev](https://leafphp.dev) recently, you've seen the new look. Alchemy, Seedling, Fetch, Hana, and this blog got the same treatment, all redesigned around a shared design language: Bricolage Grotesque headings, hairline grids, and each product keeping its own personality and colour. Different homes, same family.
 
 The docs themselves got a deep pass too: a modern reading experience, an ecosystem menu that finally connects all the products, and content updated for everything Leaf 5 changes.
 
