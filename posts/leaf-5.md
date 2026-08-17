@@ -49,17 +49,17 @@ If you've written Leaf before, you already know Leaf 5. If you haven't, you'll k
 
 ## One team, a whole toolchain
 
-The other big shift in Leaf 5 is that we stopped thinking of Leaf as one framework and started building it as a **family of focused tools** — each with its own home, each usable far beyond Leaf itself:
+The other big shift in Leaf 5 is that we stopped thinking of Leaf as one framework and started building it as a **family of focused tools**, each with its own home and each usable far beyond Leaf itself:
 
-- **[Alchemy](https://alchemy.leafphp.dev)** — your entire QA setup in one file. Tests (Pest or PHPUnit), code style, automated refactors, static analysis, and CI pipelines for GitHub, GitLab or CircleCI, all described in a single `alchemy.yml`. It works with Leaf, Laravel, Symfony, Slim, or plain PHP, installs nothing until you use it, and `alchemy eject` lets you leave anytime with real config files.
+- **[Alchemy](https://alchemy.leafphp.dev)**: your entire QA setup in one file. Tests (Pest or PHPUnit), code style, automated refactors, static analysis, and CI pipelines for GitHub, GitLab or CircleCI, all described in a single `alchemy.yml`. It works with Leaf, Laravel, Symfony, Slim, or plain PHP, installs nothing until you use it, and `alchemy eject` lets you leave anytime with real config files.
 
-- **[Seedling](https://seedling.leafphp.dev)** — build CLI tools with the Leaf MVC experience. Under the hood is Sprout, our zero-fuss console framework, which just went through a full stability pass: a real test suite, piped input and Windows fixes, and CI running across macOS, Ubuntu and Windows.
+- **[Seedling](https://seedling.leafphp.dev)**: build CLI tools with the Leaf MVC experience. Under the hood is Sprout, our zero-fuss console framework, which just went through a full stability pass: a real test suite, piped input and Windows fixes, and CI running across macOS, Ubuntu and Windows.
 
-- **[Fetch](https://fetch.leafphp.dev)** — `fetch()` for PHP. The request API you already know from JavaScript, working in any PHP app. We rebuilt the internals for v5: every documented option now actually works, form encoding is smarter, responses are more predictable, and the whole surface is covered by tests that run against a real server on every commit.
+- **[Fetch](https://fetch.leafphp.dev)**: `fetch()` for PHP. The request API you already know from JavaScript, working in any PHP app. We rebuilt the internals for v5: every documented option now actually works, form encoding is smarter, responses are more predictable, and the whole surface is covered by tests that run against a real server on every commit.
 
-- **[Hana JS](https://hanabira.dev)** — our simple, lightweight React alternative, because the frontend deserves the same "no overengineering" treatment.
+- **[Hana JS](https://hanabira.dev)**: our simple, lightweight React alternative, because the frontend deserves the same "no overengineering" treatment.
 
-That's on top of 25+ modules — grab exactly what you need, nothing else.
+That's on top of 25+ modules. Grab exactly what you need and nothing else.
 
 Why framework-agnostic? Partly because good tools deserve a bigger audience. But honestly, it's also an AI-era bet: when an assistant is choosing a library for a task, small, sharp, well-documented tools win. We want Leaf's tools to be the obvious pick whether or not the app is a Leaf app.
 
@@ -89,15 +89,31 @@ The product story is the point, but performance is still part of the promise. Le
 | 500 routes | **6.29ms** | 257.59ms (40.9x) | 531.60ms (84.5x) | 11.16ms (1.8x) |
 | 1,000 routes | **6.51ms** | 477.13ms (73.3x) | 953.34ms (146.5x) | 11.48ms (1.8x) |
 
-This compares route lookup and dispatch overhead, not full application throughput: 10,000 lookups against a mixed static/dynamic route table, alternating exact and parameterized hits, averaged over five runs on PHP 8.2. Every framework resolves the same URIs, request objects for the Laravel column are pre-built outside the timed loop, and each column measures routing work only — Illuminate Routing for Laravel, the `symfony/routing` UrlMatcher, and Slim 4's FastRoute-backed dispatch.
+This compares route lookup and dispatch overhead, not full application throughput: 10,000 lookups against a mixed static/dynamic route table, alternating exact and parameterized hits, averaged over five runs on PHP 8.2. Every framework resolves the same URIs, request objects for the Laravel column are pre-built outside the timed loop, and each column measures routing work only: Illuminate Routing for Laravel, the `symfony/routing` UrlMatcher, and Slim 4's FastRoute-backed dispatch.
 
 The reason lookups stay flat is that Leaf 5 indexes exact routes and buckets dynamic routes by method and first segment, so exact matches never touch a pattern and dynamic requests only scan their own bucket. The same pass made repeated env reads about 41x faster and URI parsing about 4.4x faster per request.
 
+## Errors that fix themselves
+
+When something breaks, the error message is the first thing you read. If you're building with an AI assistant, it's usually the only thing your assistant reads. So in Leaf 5, error messages are written the way a maintainer would answer a support ticket: what went wrong, what to do about it, and how the fix changes depending on how your app is set up.
+
+<img src="/crash-ai-error.png" style="width:100%; border-radius: 8px; margin: 15px 0;" alt="A Leaf crash report where the error message itself explains the three ways to fix it" />
+
+That's a real crash screen from Leaf 5's new error engine. The remediation is the message. It knows a Leaf MVC app can run `leaf key:generate` and a lite app can't, and it says so, right there, before you've opened a single doc. The crash screen is built for handoff too: **Copy as Markdown** turns the whole report into something you can paste into any chat, and **Open with AI** sends it there directly.
+
+## Burning fewer of your AI tokens
+
+If you build with AI, tokens are money, and most frameworks are expensive to be smart about. Assistants read thousands of words of docs to extract one API, guess at conventions, and burn retries on errors that explain nothing.
+
+Leaf 5 is careful with your assistant's context window. Reference docs live one hop away at stable URLs, with one topic per file, and each file is small enough to load whole. The [Leaf skill](https://leafphp.dev/ai/SKILL.md) leads with the exact mistakes agents actually make, because correcting a wrong assumption up front is hundreds of times cheaper than debugging it after. Errors that name their own fix collapse the try-fail-search-retry loop into one step. And `.leaf/CONTEXT.md` means your assistant never has to rediscover your architecture. It reads one small file instead of re-exploring your codebase every session.
+
+We don't guess at any of this. AI agents build real apps on Leaf, we count every file they had to open and every retry they burned, and whatever cost them tokens becomes a fix. The error screen above exists because an agent hit the unclear version of that message and told us exactly what it needed to hear instead. More on that story soon, because it deserves its own post.
+
 ## A fresh face for everything
 
-Suppose you've visited [leafphp.dev](https://leafphp.dev) recently, you've seen the new look — and it's not just the docs. Alchemy, Seedling, Fetch, Hana, and this blog all got redesigned around a shared design language: Bricolage Grotesque headings, hairline grids, and each product keeping its own personality and colour. Different homes, same family.
+If you've visited [leafphp.dev](https://leafphp.dev) recently, you've seen the new look, and it's not just the docs. Alchemy, Seedling, Fetch, Hana, and this blog all got redesigned around a shared design language: Bricolage Grotesque headings, hairline grids, and each product keeping its own personality and colour. Different homes, same family.
 
-The docs themselves got a deep pass too — a modern reading experience, an ecosystem menu that finally connects all the products, and content updated for everything Leaf 5 changes.
+The docs themselves got a deep pass too: a modern reading experience, an ecosystem menu that finally connects all the products, and content updated for everything Leaf 5 changes.
 
 ## What we're thinking (the honest part)
 
@@ -105,7 +121,7 @@ A few principles kept us honest while building this release, and they're worth w
 
 1. **AI should amplify you, not replace your judgement.** Leaf 5 gives assistants the context to do great work, but the output is always plain, reviewable PHP. You stay the architect.
 
-2. **Advertise only what works.** Every claim on every new site is backed by code and tests. Where we found gaps between docs and reality — and we found a few — we fixed the code, not the copy.
+2. **Advertise only what works.** Every claim on every new site is backed by code and tests. Where we found gaps between docs and reality (and we found a few), we fixed the code, not the copy.
 
 3. **Small surface, sharp edges.** The framework stays light. Capability comes from modules you opt into, not from a kernel that grows forever.
 
@@ -117,7 +133,7 @@ We're not done. On the roadmap from here: real-time APIs, better deployment stor
 
 ## Try it
 
-You'll need PHP 8.2 or newer — the same floor as the rest of the modern PHP ecosystem.
+You'll need PHP 8.2 or newer, the same floor as the rest of the modern PHP ecosystem.
 
 ```bash
 composer global require leafs/cli -W
@@ -125,7 +141,7 @@ leaf create my-product
 cd my-product && leaf serve
 ```
 
-Open `http://localhost:5500`, and you have a running app — no setup maze, no ceremony.
+Open `http://localhost:5500` and you have a running app. No setup maze, no ceremony.
 
 If you build something, break something, or just have thoughts, come tell us on [Discord](https://discord.gg/Pkrm9NJPE3) or [GitHub](https://github.com/leafsphp/leaf). Leaf has always been shaped by the people using it, and Leaf 5 more than any release before it.
 

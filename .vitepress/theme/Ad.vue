@@ -50,7 +50,7 @@ function dismiss() {
         <span class="ad-chip mono-label">CREATIVE LEAF</span>
         <p class="ad-title !m-0 !mt-2 !mb-1">We build products too.</p>
         <p class="ad-copy !m-0 !mb-3">
-          From the creators of Leaf PHP — a studio that's shipped frameworks and products used by millions. Let's build yours.
+          From the creators of Leaf PHP, a studio that's shipped frameworks and products used by millions. Let's build yours.
         </p>
         <span class="ad-cta inline-flex items-center gap-1.5 group-hover:gap-2.5">
           Start your project
