@@ -67,7 +67,7 @@ Why framework-agnostic? Partly because good tools deserve a bigger audience. But
 
 Leaf's real competition is a moment, the one where your early product starts working, users show up, and the codebase has to grow up without slowing you down.
 
-The classic options both tax you at that moment. The tiny-router path gives you a fast start, then charges you product time to choose and wire auth, database patterns, validation, mail, queues, views, and structure yourself. The heavy-framework path is serious from day one, but your first version inherits more concepts and more ceremony than the product needs yet. Leaf's path is to start small, add first-party product modules when your app asks for them, move into MVC when structure earns its place, and keep the whole thing readable to humans and agents as it grows.
+The classic options both tax you at that moment. The tiny-router path gives you a fast start, then charges you product time to choose and wire auth, database patterns, validation, mail, queues, views, and structure yourself. The heavy-framework path is serious from day one, but your first version inherits more concepts and more ceremony than the product needs yet. Leaf's path is to start at whatever size your product needs, a single file or a full MVC app, add first-party product modules when your app asks for them, and keep the whole thing readable to humans and agents as it grows.
 
 So, honestly:
 
