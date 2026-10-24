@@ -1,0 +1,4 @@
+surfaces:
+  - "posts/740k-installs.md"
+rules:
+  preset: leaf-writing

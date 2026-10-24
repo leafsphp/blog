@@ -283,3 +283,32 @@ pre::-webkit-scrollbar-thumb {
 .token.inserted {
   color: #98c379;
 }
+
+
+/* blog charts (740k post) */
+.lc{font-family:inherit;font-size:12px}
+.lc .ax{fill:var(--vp-c-text-3,#737373)}
+.lc .lbl{fill:var(--vp-c-text-1,#0A0A0A);font-weight:600}
+.lc .mono{font-family:var(--vp-font-family-mono,ui-monospace,Menlo,monospace);font-size:11px;letter-spacing:.06em;fill:var(--vp-c-text-3,#737373)}
+.lc .note{font-family:var(--vp-font-family-mono,ui-monospace,Menlo,monospace);font-size:11px;fill:var(--vp-c-text-2,#3D3330)}
+.lc .grid{stroke:var(--vp-c-divider,rgba(0,0,0,.08));stroke-width:1}
+.lc .line{fill:none;stroke:var(--vp-c-brand-1,#D4652E);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.lc .area{fill:var(--vp-c-brand-1,#D4652E);fill-opacity:.1}
+.lc .dot{fill:var(--vp-c-brand-1,#D4652E);stroke:var(--vp-c-bg,#FAF7F2);stroke-width:2}
+.lc .leaf{fill:var(--vp-c-brand-1,#D4652E)}
+.lc .leaf2{fill:var(--vp-c-brand-3,#F5B731)}
+.lc .vline{stroke:var(--vp-c-brand-1,#D4652E);stroke-width:1;stroke-opacity:.5}
+.lc .hit{fill:transparent}
+.lc .vlbl{font-family:var(--vp-font-family-mono,ui-monospace,Menlo,monospace);font-size:11px;letter-spacing:.04em;fill:var(--vp-c-text-1,#0A0A0A);font-weight:600}
+.lc .vline{stroke:var(--vp-c-brand-1,#D4652E);stroke-width:1;stroke-opacity:.6}
+.lc .vdelta{font-family:var(--vp-font-family-mono,ui-monospace,Menlo,monospace);font-size:10px;letter-spacing:.02em;fill:var(--vp-c-text-3,#737373)}
+.lc .zone.z1{fill:#42d392;fill-opacity:.12}
+.lc .zone.z2{fill:#42b883;fill-opacity:.16}
+.lc .zone.z3{fill:var(--vp-c-brand-1,#D4652E);fill-opacity:.14}
+.lc .zlbl{font-family:var(--vp-font-family-mono,ui-monospace,Menlo,monospace);font-size:10px;letter-spacing:.12em;text-transform:uppercase;fill:var(--vp-c-text-2,#3D3330);fill-opacity:.8}
+.lc .ring{fill:none;stroke:var(--vp-c-divider,rgba(0,0,0,.08));stroke-width:18}
+.lc .slice{fill:none;stroke:var(--vp-c-brand-1,#D4652E);stroke-width:18;stroke-linecap:butt}
+.lc .big{font-size:34px;font-weight:700;letter-spacing:-.02em;fill:var(--vp-c-text-1,#0A0A0A)}
+.lc .arrow{font-size:28px;fill:var(--vp-c-text-3,#737373)}
+.lc .key{fill:var(--vp-c-brand-1,#D4652E)}
+.lc .keyrest{fill:var(--vp-c-divider,rgba(0,0,0,.08))}
