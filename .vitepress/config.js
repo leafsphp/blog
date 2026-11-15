@@ -61,13 +61,6 @@ export default defineConfig({
       }
     ],
     [
-      'meta',
-      {
-        name: 'og:image',
-        content: 'https://v5-x.leafphp.dev/leaf5-banner.png'
-      }
-    ],
-    [
       'script',
       {
         async: '',
@@ -106,6 +99,22 @@ export default defineConfig({
     //   }
     // ],
   ],
+  transformHead({ pageData, content }) {
+    const site = 'https://blog.leafphp.dev'
+    const fm = pageData.frontmatter || {}
+    let img = fm.image
+    if (!img && pageData.relativePath.startsWith('posts/')) {
+      const m = (content || '').match(/<img[^>]+src=["']([^"']+)["']/i)
+      img = m && m[1]
+    }
+    if (!img) img = 'https://v5-x.leafphp.dev/leaf5-banner.png'
+    if (img.startsWith('/')) img = site + img
+    return [
+      ['meta', { property: 'og:image', content: img }],
+      ['meta', { name: 'og:image', content: img }],
+      ['meta', { name: 'twitter:image', content: img }]
+    ]
+  },
   vite: {
     build: {
       minify: 'terser'
