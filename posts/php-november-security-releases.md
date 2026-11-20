@@ -138,9 +138,9 @@ function latestPosts(SortDirection $direction = SortDirection::Descending)
     $order = $direction === SortDirection::Ascending ? 'asc' : 'desc';
 
     return db()
-      ->select('posts')
-      ->orderBy('created_at', $order)
-      ->all();
+        ->select('posts')
+        ->orderBy('created_at', $order)
+        ->all();
 }
 ```
 
@@ -177,8 +177,8 @@ app()->get('/settings', function () {
         $contents = file_get_contents('storage/settings.json', context: $context);
     } catch (StreamException $e) {
         return response()->json(
-          ['error' => 'Settings could not be read'],
-          500
+            ['error' => 'Settings could not be read'],
+            500
         );
     }
 
