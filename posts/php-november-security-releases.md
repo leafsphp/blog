@@ -46,7 +46,7 @@ app()->get('/posts/slugs', function () {
     $titles = array_column($posts, 'title');
 
     return response()->json(
-      array_map(str_replace(' ', '-', ?), $titles)
+        array_map(str_replace(' ', '-', ?), $titles)
     );
 });
 ```
@@ -115,7 +115,7 @@ tick('2026-12-31')->diff('2026-11-19', 'days'); // 42
 tick('2026-11-19')->fromNow();
 ```
 
-The two sit side by side in one app. Use `tick()` for anything on a calendar and a `Duration` for anything on a stopwatch. When you need both, a duration's seconds go straight into `tick()`:
+You can use both in the same app. `tick()` works with dates: what the date will be in a week, or how many days are left until a deadline. A `Duration` is a length of time with no date attached, like 15 minutes or 250 milliseconds. To add a duration to a date, pass its seconds to `tick()`:
 
 ```php
 $ttl = Duration::fromMinutes(15);
