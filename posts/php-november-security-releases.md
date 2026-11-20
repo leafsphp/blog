@@ -22,6 +22,8 @@ This post is for anyone running PHP, whatever framework you use. The first half 
 
 Congratulations to the release managers and to everyone who contributed. Here is what we are most excited about. The [release page](https://www.php.net/releases/8.6/en.php) has the full list.
 
+Every feature below comes with an example in a Leaf app. Leaf 5 runs on PHP 8.2 and newer, so you can use these as soon as your server is on 8.6.
+
 ### Partial function application
 
 You can now fill in some of a function's arguments and get back a closure that takes the rest. A `?` stands for one argument you will pass later, and `...` stands for all the remaining ones.
@@ -36,6 +38,16 @@ $slugs = array_map(str_replace(' ', '-', ?), $titles);
 
 The function only runs once the missing arguments arrive. Most one-line arrow functions passed as callbacks can go.
 
+In a Leaf route, that tidies up the small transforms you run on query results:
+
+```php
+app()->get('/posts/slugs', function () {
+    $titles = array_column(db()->select('posts', 'title')->all(), 'title');
+
+    response()->json(array_map(str_replace(' ', '-', ?), $titles));
+});
+```
+
 ### clamp()
 
 Keeping a value inside a range used to mean nesting `min()` inside `max()` and hoping you got the order right.
@@ -49,6 +61,16 @@ $volume = clamp($input, 0, 100);
 ```
 
 It works with any comparable value, numbers or otherwise.
+
+It is a good fit for input that must stay inside limits, like a page size from the query string. A missing or silly `per_page` ends up between 1 and 100:
+
+```php
+app()->get('/users', function () {
+    $perPage = clamp((int) request()->get('per_page'), 1, 100);
+
+    response()->json(db()->select('users')->limit($perPage)->all());
+});
+```
 
 ### A Duration class
 
@@ -99,12 +121,59 @@ $expiresAt = tick()->add($ttl->seconds, 'seconds');
 
 The new `Io\Poll` API watches many streams at once using the best mechanism on each platform, such as epoll or kqueue. It does not have the connection limits of `stream_select()`. It is built as a common foundation for event loop libraries like ReactPHP and AMPHP, so most of us will feel it through faster async tooling.
 
-### And the smaller things
+This is the one feature without a Leaf example, because there is no Leaf code to change. A Leaf app behind PHP-FPM handles one request per worker and never watches streams itself. Eien, Leaf's Swoole-based server, already has its own event loop.
 
-- A built-in `SortDirection` enum with `Ascending` and `Descending` cases, so libraries can share one type for sort order.
-- Readonly properties can declare default values.
-- Stream functions can throw a `StreamException` with structured errors, which replaces the `@` operator and `error_get_last()`.
-- Function parameters can carry their own DocComments.
+### A SortDirection enum
+
+PHP now has a built-in `SortDirection` enum with `Ascending` and `Descending` cases, so libraries can share one type for sort order. Your own functions can accept it today. Leaf DB's `orderBy()` still takes a string, so you map it at the edge:
+
+```php
+function latestPosts(SortDirection $direction = SortDirection::Descending)
+{
+    return db()
+        ->select('posts')
+        ->orderBy('created_at', $direction === SortDirection::Ascending ? 'asc' : 'desc')
+        ->all();
+}
+```
+
+### Readonly property defaults
+
+Readonly properties can now declare a default value. Fixed settings no longer need a constructor only to assign them:
+
+```php
+class Pagination
+{
+    public readonly int $perPage = 20;
+    public readonly int $maxPerPage = 100;
+}
+
+app()->get('/posts', function () {
+    $paging = new Pagination();
+
+    response()->json(db()->select('posts')->limit($paging->perPage)->all());
+});
+```
+
+### Stream errors you can catch
+
+Stream functions can now throw a `StreamException` with structured errors, which replaces the `@` operator and `error_get_last()`. In a Leaf route, a missing file becomes a clean error response:
+
+```php
+app()->get('/settings', function () {
+    $context = stream_context_create([
+        'stream' => ['error_mode' => StreamErrorMode::Exception],
+    ]);
+
+    try {
+        $settings = file_get_contents('storage/settings.json', context: $context);
+    } catch (StreamException $e) {
+        return response()->json(['error' => 'Settings could not be read'], 500);
+    }
+
+    response()->json(json_decode($settings, true));
+});
+```
 
 ### Should you upgrade today?
 
