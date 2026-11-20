@@ -63,12 +63,36 @@ $retryIn = Duration::fromMilliseconds(250);
 
 Durations are comparable, so they work with `min()`, `max()` and `clamp()` directly.
 
-A Duration measures elapsed time, like a timeout or a retry delay. It does not replace date handling. For dates, Leaf already has [Leaf Date](https://leafphp.dev/docs/utils/date). Its `tick()` helper adds, subtracts and compares dates, and it works the same on every PHP version Leaf supports, from 8.2 to 8.6. You do not need to upgrade PHP to use it.
+The best use is in your own function signatures. A parameter typed as `Duration` tells every caller what it expects, and nobody has to guess whether `30` means seconds or milliseconds.
+
+```php
+// PHP 8.5: is 250 seconds or milliseconds?
+function retry(callable $job, int $delay) {}
+
+retry($job, 250);
+
+// PHP 8.6: the call says it
+function retry(callable $job, Duration $delay) {}
+
+retry($job, Duration::fromMilliseconds(250));
+```
+
+One caveat: PHP's existing functions, like `sleep()` and `usleep()`, still take plain integers in 8.6. The new polling API is the only built-in that accepts a `Duration` so far. Inside your function you read `$delay->seconds` and `$delay->nanoseconds` and pass those on.
+
+A Duration measures elapsed time, like a timeout or a retry delay. It has no days, months or years, so it does not replace date handling. For dates, Leaf already has [Leaf Date](https://leafphp.dev/docs/utils/date). Its `tick()` helper adds, subtracts and compares dates, and it works the same on every PHP version Leaf supports, from 8.2 to 8.6. You do not need to upgrade PHP to use it.
 
 ```php
 tick()->add(1, 'week')->format('YYYY-MM-DD');
 tick('2026-12-31')->diff('2026-11-19', 'days'); // 42
 tick('2026-11-19')->fromNow();
+```
+
+The two sit side by side in one app. Use `tick()` for anything on a calendar and a `Duration` for anything on a stopwatch. When you need both, a duration's seconds go straight into `tick()`:
+
+```php
+$ttl = Duration::fromMinutes(15);
+
+$expiresAt = tick()->add($ttl->seconds, 'seconds');
 ```
 
 ### A polling API
