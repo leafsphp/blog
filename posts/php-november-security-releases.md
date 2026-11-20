@@ -42,9 +42,12 @@ In a Leaf route, that tidies up the small transforms you run on query results:
 
 ```php
 app()->get('/posts/slugs', function () {
-    $titles = array_column(db()->select('posts', 'title')->all(), 'title');
+    $posts = db()->select('posts', 'title')->all();
+    $titles = array_column($posts, 'title');
 
-    response()->json(array_map(str_replace(' ', '-', ?), $titles));
+    return response()->json(
+      array_map(str_replace(' ', '-', ?), $titles)
+    );
 });
 ```
 
@@ -66,9 +69,12 @@ It is a good fit for input that must stay inside limits, like a page size from t
 
 ```php
 app()->get('/users', function () {
-    $perPage = clamp((int) request()->get('per_page'), 1, 100);
+    $requested = (int) request()->get('per_page');
+    $perPage = clamp($requested, 1, 100);
 
-    response()->json(db()->select('users')->limit($perPage)->all());
+    $users = db()->select('users')->limit($perPage)->all();
+
+    return response()->json($users);
 });
 ```
 
@@ -113,7 +119,6 @@ The two sit side by side in one app. Use `tick()` for anything on a calendar and
 
 ```php
 $ttl = Duration::fromMinutes(15);
-
 $expiresAt = tick()->add($ttl->seconds, 'seconds');
 ```
 
@@ -130,10 +135,12 @@ PHP now has a built-in `SortDirection` enum with `Ascending` and `Descending` ca
 ```php
 function latestPosts(SortDirection $direction = SortDirection::Descending)
 {
+    $order = $direction === SortDirection::Ascending ? 'asc' : 'desc';
+
     return db()
-        ->select('posts')
-        ->orderBy('created_at', $direction === SortDirection::Ascending ? 'asc' : 'desc')
-        ->all();
+      ->select('posts')
+      ->orderBy('created_at', $order)
+      ->all();
 }
 ```
 
@@ -150,8 +157,9 @@ class Pagination
 
 app()->get('/posts', function () {
     $paging = new Pagination();
+    $posts = db()->select('posts')->limit($paging->perPage)->all();
 
-    response()->json(db()->select('posts')->limit($paging->perPage)->all());
+    return response()->json($posts);
 });
 ```
 
@@ -166,12 +174,17 @@ app()->get('/settings', function () {
     ]);
 
     try {
-        $settings = file_get_contents('storage/settings.json', context: $context);
+        $contents = file_get_contents('storage/settings.json', context: $context);
     } catch (StreamException $e) {
-        return response()->json(['error' => 'Settings could not be read'], 500);
+        return response()->json(
+          ['error' => 'Settings could not be read'],
+          500
+        );
     }
 
-    response()->json(json_decode($settings, true));
+    $settings = json_decode($contents, true);
+
+    return response()->json($settings);
 });
 ```
 
