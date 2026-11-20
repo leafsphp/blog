@@ -22,7 +22,7 @@ This post is for anyone running PHP, whatever framework you use. The first half 
 
 Congratulations to the release managers and to everyone who contributed. Here is what we are most excited about. The [release page](https://www.php.net/releases/8.6/en.php) has the full list.
 
-Every feature below comes with an example in a Leaf app. Leaf 5 runs on PHP 8.2 and newer, so you can use these as soon as your server is on 8.6.
+Most of the features below come with an example in a Leaf app. Leaf 5 runs on PHP 8.2 and newer, so you can use these as soon as your server is on 8.6.
 
 ### Partial function application
 
@@ -125,8 +125,6 @@ $expiresAt = tick()->add($ttl->seconds, 'seconds');
 ### A polling API
 
 The new `Io\Poll` API watches many streams at once using the best mechanism on each platform, such as epoll or kqueue. It does not have the connection limits of `stream_select()`. It is built as a common foundation for event loop libraries like ReactPHP and AMPHP, so most of us will feel it through faster async tooling.
-
-This is the one feature without a Leaf example, because there is no Leaf code to change. A Leaf app behind PHP-FPM handles one request per worker and never watches streams itself. Eien, Leaf's Swoole-based server, already has its own event loop.
 
 ### A SortDirection enum
 
