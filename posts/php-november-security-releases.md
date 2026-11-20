@@ -63,6 +63,14 @@ $retryIn = Duration::fromMilliseconds(250);
 
 Durations are comparable, so they work with `min()`, `max()` and `clamp()` directly.
 
+A Duration measures elapsed time, like a timeout or a retry delay. It does not replace date handling. For dates, Leaf already has [Leaf Date](https://leafphp.dev/docs/utils/date). Its `tick()` helper adds, subtracts and compares dates, and it works the same on every PHP version Leaf supports, from 8.2 to 8.6. You do not need to upgrade PHP to use it.
+
+```php
+tick()->add(1, 'week')->format('YYYY-MM-DD');
+tick('2026-12-31')->diff('2026-11-19', 'days'); // 42
+tick('2026-11-19')->fromNow();
+```
+
 ### A polling API
 
 The new `Io\Poll` API watches many streams at once using the best mechanism on each platform, such as epoll or kqueue. It does not have the connection limits of `stream_select()`. It is built as a common foundation for event loop libraries like ReactPHP and AMPHP, so most of us will feel it through faster async tooling.
